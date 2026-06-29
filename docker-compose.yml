@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  axl-music-bot:
+    build: .
+    container_name: axl_music_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./downloads:/app/downloads
+    deploy:
+      resources:
+        limits:
+          memory: 1200M
+        reservations:
+          memory: 400M
+    mem_limit: 1200m
+    memswap_limit: 1500m
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
