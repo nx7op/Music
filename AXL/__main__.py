@@ -9,7 +9,7 @@ from AXL.utils.player import play_next
 from AXL.modules import play, controls, auth, start  # noqa: F401
 
 
-@calls.on_update(call_filters.stream_end())
+@calls.on_update(call_filters.stream_end)
 async def on_stream_end(_, update: Update):
     chat_id = update.chat_id
     LOGGER.info(f"Stream ended in chat {chat_id}, advancing queue...")
